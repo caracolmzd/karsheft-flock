@@ -234,17 +234,8 @@ verify = "checksum"
 
 ## Shell Completion
 
-Generate shell completion scripts:
+The `flock` CLI must support shell completion for `bash`, `zsh`, and `fish`. Completion must cover:
 
-```bash
-# Bash
-_FLOCK_COMPLETE=bash_source flock > ~/.flock-complete.bash
-echo ". ~/.flock-complete.bash" >> ~/.bashrc
-
-# Zsh
-_FLOCK_COMPLETE=zsh_source flock > ~/.flock-complete.zsh
-echo ". ~/.flock-complete.zsh" >> ~/.zshrc
-
-# Fish
-_FLOCK_COMPLETE=fish_source flock > ~/.config/fish/completions/flock.fish
-```
+- All subcommand names (`init`, `resolve`, `install`)
+- All flags and their values (e.g., `--verify=` completes to `checksum`, `full`, `none`)
+- Package name suggestions for `--pkg` (when a local cache of the mirror index is available)

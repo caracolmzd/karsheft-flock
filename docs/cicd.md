@@ -265,21 +265,11 @@ jobs:
 
 ### Pin Flock Version
 
-Always pin the `karsheft-flock` version to avoid supply chain risks:
-
-```yaml
-- run: pip install karsheft-flock==0.1.0
-```
+Always pin the `karsheft-flock` version in CI/CD to avoid supply chain risks from upstream updates.
 
 ### Verify Flock Itself
 
-Verify the Flock package checksum before use in high-security environments:
-
-```bash
-pip download karsheft-flock==0.1.0 --no-deps -d ./flock-wheel
-sha256sum ./flock-wheel/karsheft_flock-0.1.0-py3-none-any.whl
-# Compare to known-good hash stored in your repo
-```
+In high-security environments, verify the integrity of the `karsheft-flock` distribution artifact before use by comparing its checksum against a known-good hash stored in the repository.
 
 ### Use Read-Only Tokens
 
